@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+alembic
+redis
+celery
+python-dotenv
+PyJWT
+requests
+pydantic
+cryptography
+GitPython

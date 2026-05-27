@@ -1,12 +1,19 @@
 from fastapi import APIRouter
-from worker.worker import start_scan
+from scanners.semgrep_runner import run_semgrep
+from scanners.gitleaks_runner import run_gitleaks
+from scanners.checkov_runner import run_checkov
 
 router = APIRouter()
 
 @router.post("/start")
 def start(repo_url: str):
-    task = start_scan.delay(repo_url)
+    results = {
+        "semgrep": run_semgrep(repo_url),
+        "gitleaks": run_gitleaks(repo_url),
+        "checkov": run_checkov(repo_url)
+    }
+
     return {
-        "task_id": task.id,
-        "status": "queued"
+        "status": "completed",
+        "results": results
     }

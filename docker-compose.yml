@@ -1,0 +1,16 @@
+services:
+  redis:
+    image: redis:7
+    container_name: kavach-redis
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15
+    container_name: kavach-postgres
+    environment:
+      POSTGRES_USER: kavach
+      POSTGRES_PASSWORD: kavach123
+      POSTGRES_DB: kavach
+    ports:
+      - "5432:5432"

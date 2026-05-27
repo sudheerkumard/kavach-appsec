@@ -1,27 +1,44 @@
 services:
   - type: web
     name: kavach-api
-    env: python
+    runtime: python
     plan: free
     buildCommand: pip install -r api/requirements.txt
     startCommand: uvicorn api.app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: kavach-redis
+          property: connectionString
 
   - type: worker
     name: kavach-worker
-    env: python
+    runtime: python
     plan: free
-    buildCommand: pip install -r worker/requirements.txt && pip install semgrep checkov GitPython
+    buildCommand: |
+      pip install -r worker/requirements.txt
+      pip install semgrep checkov GitPython
     startCommand: celery -A worker.worker worker --loglevel=info
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: kavach-redis
+          property: connectionString
 
   - type: web
     name: kavach-frontend
-    env: node
+    runtime: node
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    startCommand: npm run start
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://kavach-api.onrender.com
 
-databases:
-  - name: kavach-redis
-    databaseName: redis
+  - type: redis
+    name: kavach-redis
     plan: free
+    maxmemoryPolicy: noeviction

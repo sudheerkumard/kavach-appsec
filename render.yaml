@@ -7,10 +7,7 @@ services:
     startCommand: uvicorn api.app.main:app --host 0.0.0.0 --port 10000
     envVars:
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: kavach-redis
-          property: connectionString
+        sync: false
 
   - type: worker
     name: kavach-worker
@@ -22,10 +19,7 @@ services:
     startCommand: celery -A worker.worker worker --loglevel=info
     envVars:
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: kavach-redis
-          property: connectionString
+        sync: false
 
   - type: web
     name: kavach-frontend
@@ -36,9 +30,4 @@ services:
     startCommand: npm start
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://kavach-api.onrender.com
-
-  - type: redis
-    name: kavach-redis
-    plan: free
-    maxmemoryPolicy: noeviction
+        sync: false

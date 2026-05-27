@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: kavach-api
+    env: python
+    plan: free
+    buildCommand: pip install -r api/requirements.txt
+    startCommand: uvicorn api.app.main:app --host 0.0.0.0 --port 10000
+
+  - type: worker
+    name: kavach-worker
+    env: python
+    plan: free
+    buildCommand: pip install -r worker/requirements.txt && pip install semgrep checkov GitPython
+    startCommand: celery -A worker.worker worker --loglevel=info
+
+  - type: web
+    name: kavach-frontend
+    env: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+
+databases:
+  - name: kavach-redis
+    databaseName: redis
+    plan: free

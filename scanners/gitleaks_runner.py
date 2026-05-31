@@ -1,26 +1,31 @@
 import subprocess
-import tempfile
 import json
-import git
 
-def run_gitleaks(repo_url):
-    temp_dir = tempfile.mkdtemp()
-    git.Repo.clone_from(repo_url, temp_dir)
 
+def run_gitleaks(target_path):
     result = subprocess.run(
         [
             "gitleaks",
             "detect",
             "--source",
-            temp_dir,
+            target_path,
             "--report-format",
-            "json"
+            "json",
+            "--no-git"
         ],
         capture_output=True,
-        text=True
+        text=True,
+        encoding="utf-8",
+        errors="ignore"
     )
 
-    if result.stdout:
-        return json.loads(result.stdout)
+    print("GITLEAKS STDOUT:", result.stdout)
+    print("GITLEAKS STDERR:", result.stderr)
+
+    if result.stdout.strip():
+        try:
+            return json.loads(result.stdout)
+        except:
+            return []
 
     return []

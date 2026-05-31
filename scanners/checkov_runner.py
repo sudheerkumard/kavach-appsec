@@ -1,19 +1,36 @@
 import subprocess
-import tempfile
 import json
-import git
+import os
+import sys
 
-def run_checkov(repo_url):
-    temp_dir = tempfile.mkdtemp()
-    git.Repo.clone_from(repo_url, temp_dir)
 
-    result = subprocess.run(
-        ["checkov", "-d", temp_dir, "-o", "json"],
-        capture_output=True,
-        text=True
+def run_checkov(repo_path):
+    checkov_cmd = os.path.join(
+        os.path.dirname(sys.executable),
+        "checkov.cmd"
     )
 
-    if result.stdout:
-        return json.loads(result.stdout)
+    result = subprocess.run(
+        [
+            checkov_cmd,
+            "-d",
+            repo_path,
+            "--output",
+            "json"
+        ],
+        capture_output=True,
+        text=True,
+        timeout=900,
+        shell=True
+    )
 
-    return []
+    print("CHECKOV STDOUT:", result.stdout)
+    print("CHECKOV STDERR:", result.stderr)
+
+    if result.stdout.strip():
+        try:
+            return json.loads(result.stdout)
+        except Exception:
+            return {}
+
+    return {}

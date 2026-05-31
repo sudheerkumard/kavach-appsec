@@ -1,20 +1,26 @@
 import subprocess
-import tempfile
 import json
-import git
 
-def run_semgrep(repo_url):
-    temp_dir = tempfile.mkdtemp()
-    git.Repo.clone_from(repo_url, temp_dir)
 
-    result = subprocess.run(
-        ["semgrep", "--config=auto", "--json", temp_dir],
-        capture_output=True,
-        text=True
-    )
+def run_semgrep(target_path):
+    try:
+        result = subprocess.run(
+            [
+                "semgrep",
+                "--config=auto",
+                "--json",
+                target_path
+            ],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="ignore"
+        )
 
-    if result.stdout:
-        data = json.loads(result.stdout)
-        return data.get("results", [])
+        if result.stdout:
+            return json.loads(result.stdout)
 
-    return []
+        return {"results": []}
+
+    except Exception:
+        return {"results": []}

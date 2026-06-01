@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.app.config import settings
 from api.app.db import Base, engine
 from api.app.routes import sbom_export
+from api.app.routes import auth
 
 from api.app.routes import (
     dashboard,
@@ -44,6 +45,12 @@ app.include_router(
     dashboard.router,
     prefix="/api/dashboard",
     tags=["Dashboard"]
+)
+
+app.include_router(
+    auth.router,
+    prefix="/api/auth",
+    tags=["Authentication"]
 )
 
 # Repositories

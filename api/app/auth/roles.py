@@ -1,10 +1,7 @@
 from fastapi import HTTPException
 
 
-def require_role(
-    user,
-    role
-):
+def require_role(user, role):
 
     roles = (
         user
@@ -24,3 +21,5 @@ def require_role(
             status_code=403,
             detail="Access Denied"
         )
+
+    return True

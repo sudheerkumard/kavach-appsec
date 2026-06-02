@@ -31,7 +31,7 @@ export default function Home() {
   const [selectedRepo, setSelectedRepo] =
     useState<any>(null);
 
-  useEffect(() => {
+  /* useEffect(() => {
 
     fetch("http://localhost:8000/api/dashboard/")
       .then((res) => res.json())
@@ -48,7 +48,38 @@ export default function Home() {
 
       });
 
-  }, []);
+  }, []); */
+
+useEffect(() => {
+
+  setDashboard({
+    total_repositories: 18,
+    total_findings: 245,
+    critical: 12,
+    high: 34,
+    medium: 78,
+    low: 121,
+
+    repository_risk: [
+      {
+        id: 1,
+        name: "payment-service",
+        score: 92
+      },
+      {
+        id: 2,
+        name: "customer-portal",
+        score: 81
+      },
+      {
+        id: 3,
+        name: "mobile-backend",
+        score: 67
+      }
+    ]
+  });
+
+}, []);
 
   if (!dashboard) {
 

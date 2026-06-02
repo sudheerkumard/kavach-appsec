@@ -1,31 +1,34 @@
 {
-  "name": "kavach-premium",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@fontsource/inter": "^5.2.8",
-    "@tailwindcss/postcss": "^4.3.0",
-    "autoprefixer": "^10.5.0",
-    "lucide-react": "^0.511.0",
-    "next": "15.3.2",
-    "postcss": "^8.5.15",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "recharts": "^2.15.4",
-    "tailwindcss": "^4.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.2",
-    "typescript": "^5"
-  }
+"name": "kavach-premium",
+"version": "1.0.0",
+"private": true,
+"homepage": "https://sudheerkumard.github.io/kavach-appsec",
+"scripts": {
+"dev": "next dev --turbopack",
+"build": "next build",
+"start": "next start",
+"lint": "eslint",
+"deploy": "gh-pages -d out"
+},
+"dependencies": {
+"@fontsource/inter": "^5.2.8",
+"@tailwindcss/postcss": "^4.3.0",
+"autoprefixer": "^10.5.0",
+"lucide-react": "^0.511.0",
+"next": "15.3.2",
+"postcss": "^8.5.15",
+"react": "19.0.0",
+"react-dom": "19.0.0",
+"recharts": "^2.15.4",
+"tailwindcss": "^4.3.0"
+},
+"devDependencies": {
+"@types/node": "^20",
+"@types/react": "^19",
+"@types/react-dom": "^19",
+"eslint": "^9",
+"eslint-config-next": "15.3.2",
+"gh-pages": "^6.3.0",
+"typescript": "^5"
+}
 }

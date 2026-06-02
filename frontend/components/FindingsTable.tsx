@@ -320,7 +320,7 @@ export default function FindingsTable({
       {selectedCVE && (
 
         <CVEDrawer
-          cve={selectedCVE}
+          finding={selectedCVE}
           onClose={() => setSelectedCVE(null)}
         />
 

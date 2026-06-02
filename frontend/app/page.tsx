@@ -186,7 +186,7 @@ export default function Home() {
       {selectedRepo && (
 
         <RepositoryDetailsDrawer
-          repo={selectedRepo}
+          repository={selectedRepo}
           onClose={() => setSelectedRepo(null)}
         />
 

@@ -40,7 +40,7 @@ export default function RemediationDrawer({
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
 
         <div className="text-white text-xl">
-          Loading AI Remediation...
+          Loading Aegis AI Remediation Engine...
         </div>
 
       </div>
@@ -65,9 +65,9 @@ export default function RemediationDrawer({
         top-0
         h-full
         w-[760px]
-        bg-[#071326]
+        bg-gradient-to-b from-[#081224] to-[#10244d]
         border-l
-        border-cyan-900
+        border-blue-800
         p-8
         overflow-y-auto
       "
@@ -86,7 +86,7 @@ export default function RemediationDrawer({
         </button>
 
         <h2 className="text-4xl font-bold mb-8">
-          AI Remediation Assistant
+          Aegis AI Remediation Assistant
         </h2>
 
         <div className="space-y-8">
@@ -97,7 +97,7 @@ export default function RemediationDrawer({
               Finding
             </div>
 
-            <div className="text-cyan-400 text-xl font-bold">
+            <div className="text-red-300 text-xl font-bold">
               {finding.title}
             </div>
 
@@ -121,7 +121,7 @@ export default function RemediationDrawer({
               Root Cause
             </div>
 
-            <div className="bg-[#020817] p-4 rounded-xl">
+            <div className="bg-[#0d1b38] p-4 rounded-xl">
               {data.root_cause}
             </div>
 
@@ -133,7 +133,7 @@ export default function RemediationDrawer({
               Affected Package
             </div>
 
-            <div className="bg-[#020817] p-4 rounded-xl">
+            <div className="bg-[#0d1b38] p-4 rounded-xl">
               {data.package}
             </div>
 
@@ -147,7 +147,7 @@ export default function RemediationDrawer({
                 Current Version
               </div>
 
-              <div className="bg-[#020817] p-4 rounded-xl">
+              <div className="bg-[#0d1b38] p-4 rounded-xl">
                 {data.current_version}
               </div>
 
@@ -159,7 +159,7 @@ export default function RemediationDrawer({
                 Fixed Version
               </div>
 
-              <div className="bg-[#020817] p-4 rounded-xl text-green-400">
+              <div className="bg-[#0d1b38] p-4 rounded-xl text-green-400">
                 {data.fixed_version}
               </div>
 
@@ -193,7 +193,7 @@ export default function RemediationDrawer({
               OWASP Mapping
             </div>
 
-            <div className="bg-[#020817] p-4 rounded-xl">
+            <div className="bg-[#0d1b38] p-4 rounded-xl">
               {data.owasp}
             </div>
 
@@ -205,7 +205,7 @@ export default function RemediationDrawer({
               Verification Steps
             </div>
 
-            <div className="bg-[#020817] p-4 rounded-xl">
+            <div className="bg-[#0d1b38] p-4 rounded-xl">
 
               <ul className="list-disc ml-5 space-y-2">
 
@@ -228,8 +228,8 @@ export default function RemediationDrawer({
           <button
             className="
               mt-6
-              bg-blue-600
-              hover:bg-blue-500
+              bg-red-600
+              hover:bg-red-700
               px-6
               py-3
               rounded-xl

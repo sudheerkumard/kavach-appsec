@@ -94,6 +94,19 @@ def start_scan(self, repo_url):
 
         git.Repo.clone_from(repo_url, temp_dir)
 
+        # Remove old findings before re-scan
+        db.query(Finding).filter(
+            Finding.repo_id == repository.id
+        ).delete()
+
+        db.commit()
+
+        # Counters
+        semgrep_count = 0
+        gitleaks_count = 0
+        checkov_count = 0
+        trivy_count = 0
+
         # =========================
         # SEMGREP
         # =========================
@@ -135,6 +148,7 @@ def start_scan(self, repo_url):
                 )
 
                 db.add(finding)
+                semgrep_count += 1
 
             db.commit()
 
@@ -174,6 +188,7 @@ def start_scan(self, repo_url):
                 )
 
                 db.add(finding)
+                gitleaks_count += 1
 
             db.commit()
 
@@ -243,6 +258,7 @@ def start_scan(self, repo_url):
                 )
 
                 db.add(finding)
+                checkov_count += 1
 
             db.commit()
 
@@ -292,6 +308,7 @@ def start_scan(self, repo_url):
                     )
 
                     db.add(finding)
+                    checkov_count += 1
 
             db.commit()
 
@@ -301,6 +318,13 @@ def start_scan(self, repo_url):
         # =========================
         # COMPLETE
         # =========================
+        print("\n===== SCAN SUMMARY =====")
+        print("Repository:", repository.name)
+        print("Semgrep :", semgrep_count)
+        print("Gitleaks:", gitleaks_count)
+        print("Checkov :", checkov_count)
+        print("Trivy   :", trivy_count)
+        print("========================\n")
 
         scan.status = "COMPLETED"
         scan.progress = 100

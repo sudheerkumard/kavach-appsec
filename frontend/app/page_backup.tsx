@@ -32,37 +32,24 @@ export default function Home() {
   const [selectedRepo, setSelectedRepo] =
     useState<any>(null);
 
-  const loadDashboard = () => {
+  useEffect(() => {
 
-  fetch("http://localhost:8000/api/dashboard/")
-    .then((res) => res.json())
-    .then((data) => {
+    fetch("http://localhost:8000/api/dashboard/")
+      .then((res) => res.json())
+      .then((data) => {
 
-      console.log("DASHBOARD:", data);
+        console.log("DASHBOARD:", data);
 
-      setDashboard(data);
+        setDashboard(data);
 
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
 
-      console.error(err);
+        console.error(err);
 
-    });
+      });
 
-};
-
-useEffect(() => {
-
-  loadDashboard();
-
-  const interval = setInterval(
-    loadDashboard,
-    5000
-  );
-
-  return () => clearInterval(interval);
-
-}, []);
+  }, []);
 
   if (!dashboard) {
 

@@ -98,9 +98,9 @@ export default function FindingsTable({
     <>
       <div
         className="
-          bg-[#071326]
+          bg-[#081224]
           border
-          border-cyan-900
+          border-cyan-800
           rounded-2xl
           overflow-hidden
         "
@@ -122,9 +122,9 @@ export default function FindingsTable({
 
           <table className="w-full table-fixed">
 
-            <thead className="sticky top-0 bg-[#0b1d36] z-10">
+            <thead className="sticky top-0 bg-[#12254d] z-10">
 
-              <tr className="text-left text-cyan-300">
+              <tr className="text-left text-red-300">
 
                 <th className="p-4 w-[100px]">
                   Tool
@@ -216,8 +216,8 @@ export default function FindingsTable({
                             setSelectedCVE(finding.title)
                           }
                           className="
-                            text-cyan-400
-                            hover:text-cyan-300
+                            text-red-400
+                            hover:text-red-200
                             font-semibold
                           "
                         >
@@ -289,8 +289,8 @@ export default function FindingsTable({
                           setSelectedFinding(finding)
                         }
                         className="
-                          bg-cyan-600
-                          hover:bg-cyan-500
+                          bg-red-600
+                          hover:bg-red-700
                           w-[70px]
                           py-2
                           rounded-lg

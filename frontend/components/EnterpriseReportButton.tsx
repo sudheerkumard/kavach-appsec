@@ -16,15 +16,17 @@ export default function EnterpriseReportButton() {
     <button
       onClick={download}
       className="
-      bg-red-500
-      px-5
+      bg-red-600
+      hover:bg-red-700
+      px-6
       py-3
       rounded-xl
       font-semibold
       text-white
+      shadow-lg
       "
     >
-      Export Enterprise Report
+      Generate Executive Security Report
     </button>
 
   );

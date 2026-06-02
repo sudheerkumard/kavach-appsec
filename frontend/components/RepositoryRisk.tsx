@@ -53,9 +53,9 @@ export default function RepositoryRisk({
 
       <div
         className="
-          bg-[#071326]
+          bg-gradient-to-br from-[#081224] to-[#10244d]
           border
-          border-cyan-900
+          border-cyan-800
           rounded-2xl
           p-8
         "
@@ -95,7 +95,7 @@ export default function RepositoryRisk({
                 rounded-xl
                 p-6
                 cursor-pointer
-                hover:border-cyan-400
+                hover:border-cyan-500
                 hover:shadow-lg
                 transition
               "
@@ -111,7 +111,7 @@ export default function RepositoryRisk({
 
                   <div
                     className="
-                      text-cyan-400
+                      text-cyan-300
                       text-sm
                       break-all
                     "
@@ -160,7 +160,7 @@ export default function RepositoryRisk({
 
                   <div
                     className="
-                      bg-cyan-400
+                      bg-gradient-to-r from-red-500 to-blue-500
                       h-3
                       rounded-full
                     "

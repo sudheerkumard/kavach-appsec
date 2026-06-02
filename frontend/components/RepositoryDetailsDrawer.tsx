@@ -56,10 +56,10 @@ export default function RepositoryDetailsDrawer({
         right-0
         top-0
         h-full
-        w-[950px]
-        bg-[#071326]
+        w-[1100px]
+        bg-gradient-to-b from-[#081224] to-[#0f1f3f]
         border-l
-        border-cyan-900
+        border-blue-800
         p-8
         overflow-y-auto
       "
@@ -81,7 +81,7 @@ export default function RepositoryDetailsDrawer({
           {repository.name}
         </h2>
 
-        <p className="text-cyan-400 mt-2 mb-8">
+        <p className="text-red-300 mt-2 mb-8">
           {repository.repo_url}
         </p>
 
@@ -91,8 +91,8 @@ export default function RepositoryDetailsDrawer({
             onClick={() => setTab("overview")}
             className={`px-4 py-2 rounded-xl ${
               tab === "overview"
-                ? "bg-cyan-500 text-black"
-                : "bg-[#020817]"
+                ? "bg-red-600 text-white"
+                : "bg-[#0d1b38]"
             }`}
           >
             Overview
@@ -102,8 +102,8 @@ export default function RepositoryDetailsDrawer({
             onClick={() => setTab("sbom")}
             className={`px-4 py-2 rounded-xl ${
               tab === "sbom"
-                ? "bg-cyan-500 text-black"
-                : "bg-[#020817]"
+                ? "bg-red-600 text-white"
+                : "bg-[#0d1b38]"
             }`}
           >
             SBOM
@@ -113,8 +113,8 @@ export default function RepositoryDetailsDrawer({
             onClick={() => setTab("dependencies")}
             className={`px-4 py-2 rounded-xl ${
               tab === "dependencies"
-                ? "bg-cyan-500 text-black"
-                : "bg-[#020817]"
+                ? "bg-red-600 text-white"
+                : "bg-[#0d1b38]"
             }`}
           >
             Dependencies
@@ -124,8 +124,8 @@ export default function RepositoryDetailsDrawer({
             onClick={() => setTab("licenses")}
             className={`px-4 py-2 rounded-xl ${
               tab === "licenses"
-                ? "bg-cyan-500 text-black"
-                : "bg-[#020817]"
+                ? "bg-red-600 text-white"
+                : "bg-[#0d1b38]"
             }`}
           >
             Licenses
@@ -135,8 +135,8 @@ export default function RepositoryDetailsDrawer({
             onClick={() => setTab("risk")}
             className={`px-4 py-2 rounded-xl ${
               tab === "risk"
-                ? "bg-cyan-500 text-black"
-                : "bg-[#020817]"
+                ? "bg-red-600 text-white"
+                : "bg-[#0d1b38]"
             }`}
           >
             Risk Analysis
@@ -146,8 +146,8 @@ export default function RepositoryDetailsDrawer({
  	 onClick={() => setTab("attackpath")}
  	 className={`px-4 py-2 rounded-xl ${
   	   tab === "attackpath"
-     	     ? "bg-cyan-500 text-black"
-             : "bg-[#020817]"
+     	     ? "bg-red-600 text-white"
+             : "bg-[#0d1b38]"
            }`}
          >
            Attack Path
@@ -157,8 +157,8 @@ export default function RepositoryDetailsDrawer({
  	onClick={() => setTab("propagation")}
   	className={`px-4 py-2 rounded-xl ${
   	  tab === "propagation"
-  	    ? "bg-cyan-500 text-black"
-  	    : "bg-[#020817]"
+  	    ? "bg-red-600 text-white"
+  	    : "bg-[#0d1b38]"
  	  }`}
 	>
 	  Propagation
@@ -171,19 +171,19 @@ export default function RepositoryDetailsDrawer({
           <>
             <div className="grid grid-cols-2 gap-4">
 
-              <div className="bg-[#020817] p-5 rounded-xl">
+              <div className="bg-[#0d1b38] p-5 rounded-xl">
 
                 <div className="text-slate-400">
                   Risk Score
                 </div>
 
-                <div className="text-5xl font-bold text-cyan-400">
+                <div className="text-5xl font-bold text-red-300">
                   {repository.score}
                 </div>
 
               </div>
 
-              <div className="bg-[#020817] p-5 rounded-xl">
+              <div className="bg-[#0d1b38] p-5 rounded-xl">
 
                 <div className="text-slate-400">
                   Risk Rating
@@ -227,32 +227,32 @@ export default function RepositoryDetailsDrawer({
 
             <div className="grid grid-cols-3 gap-4 mb-4">
 
-              <div className="bg-[#020817] rounded-xl p-4">
+              <div className="bg-[#0d1b38] rounded-xl p-4">
                 <div className="text-slate-400 text-sm">
                   Packages
                 </div>
 
-                <div className="text-3xl font-bold text-cyan-400">
+                <div className="text-3xl font-bold text-red-300">
                   {sbom.package_count}
                 </div>
               </div>
 
-              <div className="bg-[#020817] rounded-xl p-4">
+              <div className="bg-[#0d1b38] rounded-xl p-4">
                 <div className="text-slate-400 text-sm">
                   Dependencies
                 </div>
 
-                <div className="text-3xl font-bold text-cyan-400">
+                <div className="text-3xl font-bold text-red-300">
                   {sbom.dependency_count}
                 </div>
               </div>
 
-              <div className="bg-[#020817] rounded-xl p-4">
+              <div className="bg-[#0d1b38] rounded-xl p-4">
                 <div className="text-slate-400 text-sm">
                   Licenses
                 </div>
 
-                <div className="text-3xl font-bold text-cyan-400">
+                <div className="text-3xl font-bold text-red-300">
                   {sbom.unique_licenses}
                 </div>
               </div>
@@ -261,7 +261,7 @@ export default function RepositoryDetailsDrawer({
 
             <div className="grid grid-cols-2 gap-4 mb-8">
 
-              <div className="bg-[#020817] rounded-xl p-4">
+              <div className="bg-[#0d1b38] rounded-xl p-4">
                 <div className="text-slate-400 text-sm">
                   Vulnerable Packages
                 </div>
@@ -271,7 +271,7 @@ export default function RepositoryDetailsDrawer({
                 </div>
               </div>
 
-              <div className="bg-[#020817] rounded-xl p-4">
+              <div className="bg-[#0d1b38] rounded-xl p-4">
                 <div className="text-slate-400 text-sm">
                   Supply Chain Risk
                 </div>

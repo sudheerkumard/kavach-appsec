@@ -1,61 +1,89 @@
 interface Props {
-  dashboard: any;
+dashboard: any;
 }
 
 export default function SeverityChart({
-  dashboard,
+dashboard,
 }: Props) {
 
-  return (
+const getColor = (severity: string) => {
 
-    <div
-      className="
-        bg-[#071326]
-        border
-        border-cyan-900
-        rounded-2xl
-        p-8
-      "
-    >
+switch (severity.toUpperCase()) {
 
-      <h2 className="text-3xl font-bold text-white mb-6">
-        Severity Distribution
-      </h2>
+  case "CRITICAL":
+    return "bg-red-600";
 
-      <div className="space-y-4">
+  case "HIGH":
+    return "bg-red-400";
 
-        {Object.entries(
-          dashboard.severity_distribution
-        ).map(([sev, count]: any) => (
+  case "MEDIUM":
+    return "bg-blue-500";
 
-          <div key={sev}>
+  case "LOW":
+    return "bg-blue-300";
 
-            <div className="flex justify-between text-white">
+  default:
+    return "bg-slate-500";
+}
 
-              <span>{sev}</span>
+};
 
-              <span>{count}</span>
+return (
 
-            </div>
+<div
+  className="
+  bg-[#081224]
+  border
+  border-blue-800
+  rounded-2xl
+  p-8
+  shadow-lg
+  "
+>
 
-            <div className="w-full h-3 bg-slate-800 rounded-full mt-2">
+  <h2 className="text-3xl font-bold text-white mb-6">
+    Severity Distribution
+  </h2>
 
-              <div
-                className="h-3 bg-cyan-500 rounded-full"
-                style={{
-                  width: `${count / dashboard.findings * 100}%`
-                }}
-              />
+  <div className="space-y-5">
 
-            </div>
+    {Object.entries(
+      dashboard.severity_distribution
+    ).map(([sev, count]: any) => (
 
-          </div>
+      <div key={sev}>
 
-        ))}
+        <div className="flex justify-between text-white mb-2">
+
+          <span className="font-medium">
+            {sev}
+          </span>
+
+          <span className="font-bold">
+            {count}
+          </span>
+
+        </div>
+
+        <div className="w-full h-4 bg-slate-800 rounded-full">
+
+          <div
+            className={`h-4 rounded-full ${getColor(sev)}`}
+            style={{
+              width: `${(count / dashboard.findings) * 100}%`
+            }}
+          />
+
+        </div>
 
       </div>
 
-    </div>
+    ))}
 
-  );
+  </div>
+
+</div>
+
+);
+
 }

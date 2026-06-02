@@ -1,0 +1,29 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Database
+*.db
+
+# Reports
+*.pdf
+
+# Generated charts
+*.png
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/.next/
+
+# Environment
+.env
+.env.local
+
+# Backup files
+*_backup.py
+
+# IDE
+.vscode/
+.idea/

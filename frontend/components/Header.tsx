@@ -1,51 +1,45 @@
 export default function Header() {
 
-return (
-
-<div className="mb-10">
-
-  <div className="flex items-center gap-4">
-
-    <div
-      className="
-      w-16
-      h-16
-      rounded-xl
-      bg-gradient-to-br
-      from-red-600
-      to-blue-700
-      flex
-      items-center
-      justify-center
-      text-white
-      text-2xl
-      font-bold
-      shadow-lg
-      "
-    >
-      AK
-    </div>
+  return (
 
     <div>
 
-      <h1 className="text-5xl font-bold text-white">
-        Aegis DevSecOps Model
-      </h1>
+      <div className="flex items-center">
 
-      <p className="text-red-400 font-semibold mt-1">
-        Aegis Data Kavach
-      </p>
+        <img
+          src="/yash-logo.png"
+          alt="YASH DevSecOps"
+          className="w-90 h-auto object-contain"
+        />
+
+        <div className="ml-12">
+
+          <div className="flex items-center gap-4">
+
+            <h1 className="text-5xl font-bold text-white">
+              YASH DevSecOps Model
+            </h1>
+
+            <span className="text-slate-500 text-3xl">
+              |
+            </span>
+
+            <span className="text-red-400 font-semibold text-2xl">
+              Aegis Data Kavach
+            </span>
+
+          </div>
+
+          <p className="text-slate-300 text-lg mt-4">
+            Enterprise DevSecOps Platform • SAST • SCA • SBOM • IaC Security • Secrets Detection • Executive Risk Analytics
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
-
-  <p className="text-slate-300 mt-4 text-lg">
-    Enterprise DevSecOps • Application Security • SBOM • Risk Analytics
-  </p>
-
-</div>
-
-);
+  );
 
 }

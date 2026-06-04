@@ -81,7 +81,7 @@ useEffect(() => {
         text-white
       "
       >
-        Loading Aegis DevSecOps Model...
+        Loading YASH Data Kavach Platform...
       </div>
 
     );
@@ -148,11 +148,6 @@ useEffect(() => {
         <div>
 
           <Header />
-
-          <p className="text-slate-300 text-sm mt-2">
-            Enterprise DevSecOps • Application Security •
-            SBOM Intelligence • Risk Analytics
-          </p>
 
         </div>
 
